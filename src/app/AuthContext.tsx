@@ -4,10 +4,9 @@ import { supabase } from "./supabase-client";
 import Header from "./_components/Header/page";
 import TodoContets from "./_components/TodoContets/TodoContets"
 
-const Context = React.createContext();
+export const Context = React.createContext(null);
 
 export default function Page({ children }: { children: any; }) {
-
   const [session, setSession] = React.useState<any>(null)
 
   React.useEffect(() => {
@@ -26,9 +25,9 @@ export default function Page({ children }: { children: any; }) {
   }, [])
   return (
     <Context.Provider value={session}>
-      <Header value={session}/>
+      <Header/>
       {children}
-      <TodoContets value={session}/>
+      <TodoContets/>
     </Context.Provider>
   );
 }
