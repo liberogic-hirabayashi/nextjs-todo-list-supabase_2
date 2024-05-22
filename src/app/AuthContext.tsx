@@ -1,12 +1,17 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { supabase } from "./supabase-client";
 import Header from "./_components/Header/page";
 import TodoContets from "./_components/TodoContets/TodoContets"
 
-export const Context = React.createContext(null);
 
-export default function Page({ children }: { children: any; }) {
+interface AuthContextType {
+  session: any | null;
+
+}
+export const Context = React.createContext<AuthContextType | undefined>(undefined);
+
+export default function Page() {
   const [session, setSession] = React.useState<any>(null)
 
   React.useEffect(() => {
@@ -23,10 +28,10 @@ export default function Page({ children }: { children: any; }) {
       subscription.data.subscription.unsubscribe();
     }
   }, [])
+
   return (
     <Context.Provider value={session}>
       <Header/>
-      {children}
       <TodoContets/>
     </Context.Provider>
   );

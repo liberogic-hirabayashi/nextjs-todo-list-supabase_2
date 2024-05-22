@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useRouter } from "next/navigation";
 
 const buttonStyle = `border p-1 px-4 rounded text-white`;
@@ -40,7 +40,7 @@ export default function AddTask() {
         onChange={(e) => {
           setTaskTitle(e.target.value);
         }}
-        className="border rounded p-1 mr-4 w-60"
+        className="border rounded p-1 mr-4 w-60 text-black"
       />
       <button className={buttonStyle}>追加</button>
     </form>

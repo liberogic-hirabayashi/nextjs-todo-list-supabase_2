@@ -4,17 +4,16 @@ import { Context } from "../../AuthContext";
 import React, { useContext } from "react";
 
 export default function TodoContets() {
-    const session = useContext(Context);
+  const session = useContext(Context);
   return (
     <div className="text-white">
       {session ? (
-        <p>
-          サインイン中 ここにTodoアプリが入ります。  
-          {/* <AddTask />
-              <Todo /> */}
-        </p>
+        <div className="pt-32 w-[500px] m-auto flex-col flex items-center">
+          <AddTask />
+          <Todo />
+        </div>
       ) : (
-        <p>サインアウト</p>
+       ""
       )}
     </div>
   );
