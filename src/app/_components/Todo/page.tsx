@@ -1,9 +1,8 @@
 import React from "react";
 import { Todos } from "../../../types";
 import Link from "next/link";
-import { useEffect, useState,useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Context } from "../../AuthContext";
-
 
 const statusStyle = `border text-sm p-1 rounded min-w-[50px] text-center`;
 
@@ -15,10 +14,10 @@ const statusStyle = `border text-sm p-1 rounded min-w-[50px] text-center`;
 //   return data.posts;
 // };
 
-export default  function Todo() {
+export default function Todo() {
   const [data, setData] = useState<any[] | null>(null);
+
   const addTask = useContext(Context);
-  console.log(addTask)
 
   useEffect(() => {
     const getAllList = async () => {

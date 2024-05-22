@@ -9,6 +9,7 @@ export const GET = async (req: Request, res: NextResponse) => {
   try {
     await createClient();
     const posts = await prisma.post.findMany();
+    console.log("hoge")
     return NextResponse.json({ posts });
   } catch (error) {
     return NextResponse.json("GET Error");

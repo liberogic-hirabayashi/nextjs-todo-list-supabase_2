@@ -7,7 +7,7 @@ import { Context } from "../../AuthContext";
 const buttonStyle = `border p-1 px-4 rounded text-white`;
 
 export default function Header() {
-  const session = useContext(Context);
+  const {session} = useContext(Context);
 
   const login = () => {
     supabase.auth.signInWithOAuth({
