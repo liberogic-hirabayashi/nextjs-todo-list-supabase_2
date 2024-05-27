@@ -9,7 +9,7 @@ const buttonStyle = `border p-1 px-4 rounded text-white`;
 const defaultAuthData: TodoData = {
   todos: null,
   OnSubmit: async () => {},
-  tasktitle: '',
+  taskTitle: '',
   OnChange: () => {},
 };
 
@@ -23,7 +23,7 @@ export default function TodosContext({
   const [data, setData] = useState<any[] | null>(null);
   const [click, setClick] = useState(false);
 
-  const [tasktitle, setTaskTitle] = useState<string>("");
+  const [taskTitle, setTaskTitle] = useState<string>("");
 
   const router = useRouter();
 
@@ -41,9 +41,9 @@ export default function TodosContext({
   };
 
   const OnSubmit = async (e: React.FormEvent) => {
-    if (tasktitle != "") {
+    if (taskTitle != "") {
       e.preventDefault();
-      await postTodo(tasktitle, "");
+      await postTodo(taskTitle, "");
       await router.refresh();
       setTaskTitle("");
       setClick(true);
@@ -84,7 +84,7 @@ export default function TodosContext({
   }, [click]);
   const todos = data;
   return (
-    <TodosContextData.Provider value={{ todos, OnSubmit, tasktitle, OnChange }}>
+    <TodosContextData.Provider value={{ todos, OnSubmit, taskTitle, OnChange }}>
       {children}
     </TodosContextData.Provider>
   );

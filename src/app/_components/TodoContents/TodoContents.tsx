@@ -4,7 +4,7 @@ import { Context } from "../../context/AuthContext";
 import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/TodosContext";
 
-export default function TodoContets() {
+export default function TodoContents() {
   const session = useContext(Context);
   const [data, setData] = useState<any[] | null>(null);
   useEffect(() => {

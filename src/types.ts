@@ -8,7 +8,7 @@
   type TodoData = {
     todos: Todos[] | null;
     OnSubmit: (e: React.FormEvent) => Promise<void>;
-    tasktitle: string;
+    taskTitle: string;
     OnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   };
 

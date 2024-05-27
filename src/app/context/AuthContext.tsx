@@ -2,7 +2,7 @@
 import React, { useContext, useState,useEffect } from "react";
 import { supabase } from "../supabase-client";
 import Header from "../_components/Header/Header";
-import TodoContets from "../_components/TodoContets/TodoContets";
+import TodoContents from "../_components/TodoContents/TodoContents";
 
 interface AuthContextType {
   session: any | null;
@@ -29,7 +29,7 @@ export default function Page() {
   return (
     <Context.Provider value={session}>
       <Header />
-      <TodoContets />
+      <TodoContents />
     </Context.Provider>
   );
 }
