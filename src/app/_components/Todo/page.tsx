@@ -2,7 +2,7 @@ import React from "react";
 import { Todos } from "../../../types";
 import Link from "next/link";
 import { useContext } from "react";
-import { AuthContextData } from "../AuthContext/page";
+import { TodosContexttData } from "../TodosContext/page";
 
 const statusStyle = `border text-sm p-1 rounded min-w-[50px] text-center`;
 
@@ -15,7 +15,7 @@ const statusStyle = `border text-sm p-1 rounded min-w-[50px] text-center`;
 // };
 
 export default function Todo() {
-  const { todos } = useContext(AuthContextData);
+  const { todos } = useContext(TodosContexttData);
 
   return (
     <div>

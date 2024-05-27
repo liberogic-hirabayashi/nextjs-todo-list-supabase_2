@@ -1,21 +1,21 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {AuthData} from "../../../types"
+import {TodoData} from "../../../types"
 
 const buttonStyle = `border p-1 px-4 rounded text-white`;
 
 
-const defaultAuthData: AuthData = {
+const defaultAuthData: TodoData = {
   todos: null,
   OnSubmit: async () => {},
   tasktitle: '',
   OnChange: () => {},
 };
 
-export const AuthContextData = React.createContext<AuthData>(defaultAuthData);
+export const TodosContexttData = React.createContext<TodoData>(defaultAuthData);
 
-export default function AuthContext({
+export default function TodosContext({
   children,
 }: {
   children: React.ReactNode;
@@ -84,8 +84,8 @@ export default function AuthContext({
   }, [click]);
   const todos = data;
   return (
-    <AuthContextData.Provider value={{ todos, OnSubmit, tasktitle, OnChange }}>
+    <TodosContexttData.Provider value={{ todos, OnSubmit, tasktitle, OnChange }}>
       {children}
-    </AuthContextData.Provider>
+    </TodosContexttData.Provider>
   );
 }
