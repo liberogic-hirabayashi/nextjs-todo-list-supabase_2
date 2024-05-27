@@ -4,36 +4,8 @@ import { Context } from "../../context/AuthContext";
 import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/TodosContext";
 
-export default function TodoContents() {
+export default function TodoContets() {
   const session = useContext(Context);
-  const [data, setData] = useState<any[] | null>(null);
-  useEffect(() => {
-    const getAllList = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_PATH}todos`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              // Authorization: `Bearer ${session.access_token}`,
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const res = await response.json();
-        const data = res.posts;
-        setData(data);
-      } catch (error) {
-      } finally {
-      }
-    };
-    getAllList();
-  }, []);
   return (
     <div className="text-white pt-32 w-[500px] m-auto flex-col flex items-center">
       <div className="mb-4 text-center">

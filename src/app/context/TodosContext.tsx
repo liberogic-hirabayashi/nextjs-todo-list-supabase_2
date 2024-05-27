@@ -21,7 +21,7 @@ export default function TodosContext({
   children: React.ReactNode;
 }) {
   const [data, setData] = useState<any[] | null>(null);
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState<Boolean>(false);
 
   const [taskTitle, setTaskTitle] = useState<string>("");
 
@@ -47,9 +47,10 @@ export default function TodosContext({
       await router.refresh();
       setTaskTitle("");
       setClick(true);
+   
     }
   };
-  const OnChange = (e: any) => {
+  const OnChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setTaskTitle(e.target.value);
   };
 
