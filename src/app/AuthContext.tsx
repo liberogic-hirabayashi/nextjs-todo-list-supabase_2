@@ -6,15 +6,11 @@ import TodoContets from "./_components/TodoContets/TodoContets";
 
 interface AuthContextType {
   session: any | null;
-  add: boolean;
 }
-export const Context = React.createContext<AuthContextType | undefined>(
-  undefined
-);
+export const Context = React.createContext<AuthContextType | null>(null);
 
 export default function Page() {
   const [session, setSession] = React.useState<any>(null);
-  const [add, setAdd] = useState(false);
 
   React.useEffect(() => {
     const subscription = supabase.auth.onAuthStateChange((event, session) => {
@@ -22,7 +18,6 @@ export default function Page() {
         setSession(null);
       } else if (session) {
         setSession(session);
-        setAdd(true);
       }
     });
 
@@ -32,7 +27,7 @@ export default function Page() {
   }, []);
 
   return (
-    <Context.Provider value={{ session, add }}>
+    <Context.Provider value={{ session }}>
       <Header />
       <TodoContets />
     </Context.Provider>

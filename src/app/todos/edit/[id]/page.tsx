@@ -41,7 +41,6 @@ export default function Page({ params }: { params: { id: number} }) {
   const titleRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
   const [todoStatus, setTodoStatus] = useState<string>("");
-  console.log(params)
 
   const handleEdit = async (e: React.FormEvent) => {
     e.preventDefault();
