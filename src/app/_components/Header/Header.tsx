@@ -1,8 +1,7 @@
 "use client";
 import React, { useContext } from "react";
-import AuthContext from "../../AuthContext";
 import { supabase } from "../../supabase-client";
-import { Context } from "../../AuthContext";
+import { Context } from "../../context/AuthContext";
 
 const buttonStyle = `border p-1 px-4 rounded text-white`;
 

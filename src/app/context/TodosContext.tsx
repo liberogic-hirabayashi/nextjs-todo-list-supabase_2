@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {TodoData} from "../../../types"
+import {TodoData} from "../../types"
 
 const buttonStyle = `border p-1 px-4 rounded text-white`;
 
@@ -13,7 +13,7 @@ const defaultAuthData: TodoData = {
   OnChange: () => {},
 };
 
-export const TodosContexttData = React.createContext<TodoData>(defaultAuthData);
+export const TodosContextData = React.createContext<TodoData>(defaultAuthData);
 
 export default function TodosContext({
   children,
@@ -84,8 +84,8 @@ export default function TodosContext({
   }, [click]);
   const todos = data;
   return (
-    <TodosContexttData.Provider value={{ todos, OnSubmit, tasktitle, OnChange }}>
+    <TodosContextData.Provider value={{ todos, OnSubmit, tasktitle, OnChange }}>
       {children}
-    </TodosContexttData.Provider>
+    </TodosContextData.Provider>
   );
 }

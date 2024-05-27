@@ -1,8 +1,8 @@
-import AddTask from "@/_components/AddTask/page";
-import Todo from "@/_components/Todo/page";
-import { Context } from "../../AuthContext";
+import AddTask from "@/_components/AddTask/AddTask";
+import Todo from "@/_components/Todo/Todo";
+import { Context } from "../../context/AuthContext";
 import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../TodosContext/page";
+import AuthContext from "../../context/TodosContext";
 
 export default function TodoContets() {
   const session = useContext(Context);

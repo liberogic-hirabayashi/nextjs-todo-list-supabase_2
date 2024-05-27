@@ -1,8 +1,8 @@
 "use client";
-import React, { useContext, useState } from "react";
-import { supabase } from "./supabase-client";
-import Header from "./_components/Header/page";
-import TodoContets from "./_components/TodoContets/TodoContets";
+import React, { useContext, useState,useEffect } from "react";
+import { supabase } from "../supabase-client";
+import Header from "../_components/Header/Header";
+import TodoContets from "../_components/TodoContets/TodoContets";
 
 interface AuthContextType {
   session: any | null;
@@ -10,9 +10,9 @@ interface AuthContextType {
 export const Context = React.createContext<AuthContextType | null>(null);
 
 export default function Page() {
-  const [session, setSession] = React.useState<any>(null);
+  const [session, setSession] = useState<any>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const subscription = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "SIGNED_OUT") {
         setSession(null);
@@ -27,7 +27,7 @@ export default function Page() {
   }, []);
 
   return (
-    <Context.Provider value={{ session }}>
+    <Context.Provider value={session}>
       <Header />
       <TodoContets />
     </Context.Provider>

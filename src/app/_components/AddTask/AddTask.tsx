@@ -1,11 +1,11 @@
 "use client";
 import React, {  useContext } from "react";
-import { TodosContexttData } from "../TodosContext/page";
+import { TodosContextData } from "../../context/TodosContext";
 
 const buttonStyle = `border p-1 px-4 rounded text-white`;
 
 export default function AddTask() {
- const {OnSubmit,tasktitle,OnChange}= useContext(TodosContexttData);
+ const {OnSubmit,tasktitle,OnChange}= useContext(TodosContextData);
 
   return (
     <form onSubmit={OnSubmit}>
