@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter,usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Status from "../../../_components/Status/Status";
 
@@ -67,6 +67,8 @@ export default function Page({ params }: { params: { id: number} }) {
       }),
       [];
   });
+  const pathname=usePathname()
+  console.log(pathname)
 
   return (
     <div className="mt-40">

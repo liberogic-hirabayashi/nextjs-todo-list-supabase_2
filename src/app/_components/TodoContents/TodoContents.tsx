@@ -2,7 +2,7 @@ import AddTask from "@/_components/AddTask/AddTask";
 import Todo from "@/_components/Todo/Todo";
 import { Context } from "../../context/AuthContext";
 import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../../context/TodosContext";
+import TodoContext from "../../context/TodosContext";
 
 export default function TodoContets() {
   const session = useContext(Context);
@@ -14,10 +14,10 @@ export default function TodoContets() {
       </div>
       {session ? (
         <div>
-          <AuthContext>
+          <TodoContext>
             <AddTask />
             <Todo />
-          </AuthContext>
+          </TodoContext>
         </div>
       ) : (
         ""
